@@ -1,0 +1,25 @@
+<div *ngIf="disco; else bloccoCaricamento"
+  class="container d-flex flex-column justify-content-center px-lg-5">
+  <div class="disco-detail row flex-column flex-md-row justify-content-between align-items-center p-3" *ngIf="disco">
+    <figure class="disco-poster col-12 col-md-4 p-0 mb-4 m-md-0">
+      <img [src]="disco.poster" alt="">
+    </figure>
+    <div class="disco-info col-12 col-md-8">
+      <h1>Title: {{disco.title}}</h1>
+      <p>Author: {{disco.author}}</p>
+      <p>Year: {{disco.year}}</p>
+      <p>Genre: {{disco.genre}}</p>
+    </div>
+  </div>
+  <div class="row justify-content-end mt-5">
+    <button class="col-2 py-2" type="button" (click)="goBack()">Indietro</button>
+  </div>
+</div>
+
+<ng-template #bloccoCaricamento>
+  <div class="container d-flex justify-content-center align-items-center">
+    <div class="caricamento-dischi">
+      <span>caricamento in corso...</span>
+    </div>
+  </div>
+</ng-template>

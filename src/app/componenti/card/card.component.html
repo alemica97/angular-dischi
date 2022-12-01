@@ -1,0 +1,18 @@
+<div class="card-dischi-grid row justify-content-center px-5 px-sm-1 gap-3">
+  <div class="card-dischi d-flex flex-column col-11 col-sm-5 col-md-3 col-lg-2"
+    *ngFor="let disco of filteredArray; index as i" routerLink="/disco-info/{{disco.title}}">
+    <figure class="poster-wrapper m-0">
+      <img *ngIf="disco.poster" [src]="disco.poster" alt="">
+    </figure>
+    <div class="card-dischi-description">
+      <h4 class="disco-title">{{disco.title}}</h4>
+      <div [ngSwitch]="disco.genre">
+        <span class="disco-genre" *ngSwitchCase="'Rock'" style="background-color: crimson;"><strong>{{disco.genre | uppercase}}</strong></span>
+        <span class="disco-genre" *ngSwitchCase="'Pop'" style="background-color: lawngreen;"><strong>{{disco.genre | uppercase}}</strong></span>
+        <span class="disco-genre" *ngSwitchCase="'Jazz'" style="background-color: orange;"><strong>{{disco.genre | uppercase}}</strong></span>
+        <span class="disco-genre" *ngSwitchCase="'Metal'" style="background-color: indigo;"><strong>{{disco.genre | uppercase}}</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
+

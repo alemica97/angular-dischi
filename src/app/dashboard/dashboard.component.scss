@@ -1,0 +1,36 @@
+h1{
+  margin-bottom: 3rem;
+}
+
+.container{
+  min-height: calc(100vh - 4rem);
+
+  .link-wrapper{
+    background-color: rgba(121, 121, 121, 0.5);
+    color: rgba(255, 255, 255, 0.89);
+    border-radius: 0.6rem;
+    min-height: 5rem;
+    cursor: pointer;
+
+    &:hover{
+      background-color: rgba(121, 121, 121, 0.918);
+      transition: all 500ms;
+      box-shadow: 0rem 0rem 1rem rgba(121, 121, 121, 0.918);;
+    }
+
+    .poster-wrapper{
+      width: 33%;
+      aspect-ratio: 1 / 1;
+      border-radius: 0.6rem 0 0 0.6rem;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .disco-info{
+      width: 67%;
+      font-weight: 700;
+      padding-right: 0.8rem;
+      font-size: 1.3rem;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.card-dischi-grid{
+
+  .card-dischi{
+    padding: 1rem;
+    border-radius: 1.4rem;
+    // width: calc((100% / 4) - 1.1rem);
+    background-color: rgba(121, 121, 121, 0.5);
+    color: rgba(255, 255, 255, 0.89);
+
+    &:hover{
+      background-color: rgba(155, 155, 155, 0.705);
+      transform: translateY(-0.3rem);
+      cursor: pointer;
+      transition: all 800ms;
+      box-shadow: 0rem 0rem 1rem #ddd;
+
+      .poster-wrapper img{
+        transform: scale(1.1, 1.1);
+        transition: all 1000ms;
+      }
+    }
+
+    .poster-wrapper{
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 1.3rem;
+      overflow: hidden;
+    }
+
+    .card-dischi-description{
+      padding: 1rem 0 0 0;
+      position: relative;
+      height: 8rem;
+
+      .disco-title{
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+
+      .disco-info{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 0.9rem;
+      }
+
+      .disco-genre{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        padding: 0.1rem 0.6rem;
+        border-radius: 0.4rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+
+

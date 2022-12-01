@@ -1,0 +1,26 @@
+<div class="main-container">
+  <div class="container dischi-up">
+    <h1>Tutti i dischi</h1>
+    <div class="select-wrapper">
+      <select name="genre" id="genre" [(ngModel)]="valoreSelect" (ngModelChange)="getDischi()">
+        <option value="">Seleziona un genere musicale</option>
+        <option value="Rock">Rock</option>
+        <option value="Pop">Pop</option>
+        <option value="Jazz">Jazz</option>
+        <option value="Metal">Metal</option>
+      </select>
+    </div>
+  </div>
+  <div class="container dischi-list d-flex justify-content-center align-items-center flex-wrap flex-grow-1">
+    <div *ngIf="dischiInfo; else bloccoCaricamento">
+      <!--Metto un ngIf perchè finchè la chiamata non va a buon fine, dischiInfo rimane undefined -->
+      <app-card [arrayDischi]="dischiInfo" [selectedGenre]="valoreSelect"></app-card>
+    </div>
+    <ng-template #bloccoCaricamento>
+      <div class="caricamento-dischi">
+        <span>caricamento in corso...</span>
+      </div>
+    </ng-template>
+  </div>
+</div>
+

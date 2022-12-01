@@ -1,0 +1,35 @@
+.main-container{
+  min-height: calc(100vh - 4rem);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+
+  .dischi-up{
+    padding-top: 1.5rem;
+    text-align: center;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.select-wrapper{
+  padding: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+
+  select{
+    border: none;
+    border-radius: 0.8rem;
+    padding: 0 0.5rem;
+    background-color: rgba(121, 121, 121, 0.5);
+    color: rgba(255, 255, 255, 0.89);
+  }
+}
+
+.dischi-list{
+  padding-top: 9.5rem;
+}
+

@@ -1,0 +1,39 @@
+.container{
+  height: calc(100vh - 4rem);
+}
+
+.disco-detail{
+  border-radius: 1.4rem;
+  background-color: rgba(121, 121, 121, 0.5);
+  color: rgba(255, 255, 255, 0.89);
+
+  .disco-poster{
+    width: 33%;
+    aspect-ratio: 1 / 1;
+    border-radius: 1.3rem;
+    overflow: hidden;
+  }
+
+  .disco-info{
+    flex-grow: 1;
+
+    h1{
+      margin-bottom: 1.6rem;
+    }
+
+    p{
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+button{
+  border: none;
+  border-radius: 0.8rem;
+  background-color: rgba(121, 121, 121, 0.5);
+  color: white;
+  &:hover{
+    background-color: rgba(121, 121, 121, 0.74);
+    transition: all 500ms;
+  }
+}
