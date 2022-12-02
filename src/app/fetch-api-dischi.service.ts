@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, throwError } from 'rxjs';
 import { Card } from './models/card';
 import { ApiResponse } from './models/apiResponse';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,10 @@ import { ApiResponse } from './models/apiResponse';
 
 export class FetchApiDischiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) { }
 
 
   /**Prendo i dischi tramite una chiamata api */
@@ -22,7 +26,10 @@ export class FetchApiDischiService {
       catchError((err) => {
         console.log('errore trovato')
         console.log('errore: ',err);
-
+        console.log('error status: ', err.status);
+        if(err.status == 200){
+          this.router.navigateByUrl('/dashboard')
+        }
         return throwError(err);
       })
     );
@@ -45,6 +52,10 @@ export class FetchApiDischiService {
       catchError((err) => {
         console.log('errore trovato')
         console.log('errore: ',err);
+        console.log('error status: ', err.status);
+        if(err.status == 200){
+          this.router.navigateByUrl('/dashboard')
+        }
         return throwError(err);
       })
     );
