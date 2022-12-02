@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { Card } from './models/card';
 import { ApiResponse } from './models/apiResponse';
 
@@ -18,7 +18,13 @@ export class FetchApiDischiService {
   in questo caso (map) che prende il risultato della chiamata e restituisce risultato.response*/
   getDischi(): Observable<Card[]> {
     return this.http.get<ApiResponse>('https://flynn.boolean.careers/exercises/api/array/music').pipe(
-      map(result => result.response.reverse())
+      map(result => result.response.reverse()),
+      catchError((err) => {
+        console.log('errore trovato')
+        console.log('errore: ',err);
+
+        return throwError(err);
+      })
     );
   }
 
@@ -35,6 +41,11 @@ export class FetchApiDischiService {
           year: "N/A",
           poster: ""
         };
+      }),
+      catchError((err) => {
+        console.log('errore trovato')
+        console.log('errore: ',err);
+        return throwError(err);
       })
     );
   }
