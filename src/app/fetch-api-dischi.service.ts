@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, delay, map, Observable, throwError } from 'rxjs';
 import { Card } from './models/card';
 import { ApiResponse } from './models/apiResponse';
 import { Router } from '@angular/router';
@@ -22,6 +22,7 @@ export class FetchApiDischiService {
   in questo caso (map) che prende il risultato della chiamata e restituisce risultato.response*/
   getDischi(): Observable<Card[]> {
     return this.http.get<ApiResponse>('https://flynn.boolean.careers/exercises/api/array/music').pipe(
+      delay(300), /**Simulo un ritardo nella chiamata */
       map(result => result.response.reverse()),
       catchError((err) => {
         console.log('errore trovato')
@@ -38,6 +39,7 @@ export class FetchApiDischiService {
   /**Passando il titolo come parametro, ritorno il disco il cui titolo corrisponde al titolo del disco cliccato*/
   getDisco(title: string): Observable<Card> {
     return this.http.get<ApiResponse>('https://flynn.boolean.careers/exercises/api/array/music').pipe(
+      delay(200), /**Simulo un ritardo nella chiamata */
       map(result => {
         let card = result.response.find(el => el.title === title);
         //Se card esiste la ritorna, altrimenti torna una card vuota di default

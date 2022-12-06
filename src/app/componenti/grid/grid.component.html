@@ -17,8 +17,8 @@
       <app-card [arrayDischi]="dischiInfo" [selectedGenre]="valoreSelect"></app-card>
     </div>
     <ng-template #bloccoCaricamento>
-      <div class="caricamento-dischi">
-        <span>caricamento in corso...</span>
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
       </div>
     </ng-template>
   </div>
