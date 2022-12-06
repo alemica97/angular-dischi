@@ -9,7 +9,7 @@ import { Card } from '../models/card';
 })
 export class DashboardComponent implements OnInit {
 
-  dischi: Card[] = [];
+  dischi: Card[] | undefined;
 
   constructor(private fetchApiDischi: FetchApiDischiService) { }
 

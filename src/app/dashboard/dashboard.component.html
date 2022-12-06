@@ -5,16 +5,23 @@
     </div>
   </div>
   <div class="flex-grow-1 d-flex justify-content-center align-items-center">
-    <div class="row justify-content-between gap-4 flex-grow-1 p-4 px-sm-0 pt-sm-4 pt-md-4 p-lg-4">
-      <div class="link-wrapper col-12 col-sm-5 d-flex align-items-center p-0 flex-grow-1"
-        *ngFor="let disco of dischi" routerLink="/disco-info/{{disco.title}}">
-        <figure class="poster-wrapper">
-          <img [src]="disco.poster" alt="">
-        </figure>
-        <div class="disco-info ms-3">
-          <h5>{{disco.title}}</h5>
-        </div>
+    <div *ngIf="dischi; else bloccoCaricamento">
+      <div class="row justify-content-between gap-4 flex-grow-1 p-4 px-sm-0 pt-sm-4 pt-md-4 p-lg-4">
+          <div class="link-wrapper col-12 col-sm-5 d-flex align-items-center p-0 flex-grow-1"
+            *ngFor="let disco of dischi" routerLink="/disco-info/{{disco.title}}">
+            <figure class="poster-wrapper">
+              <img [src]="disco.poster" alt="">
+            </figure>
+            <div class="disco-info ms-3">
+              <h5>{{disco.title}}</h5>
+            </div>
+          </div>
       </div>
     </div>
+    <ng-template #bloccoCaricamento>
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </ng-template>
   </div>
 </div>
